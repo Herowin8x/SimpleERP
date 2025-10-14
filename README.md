@@ -1,5 +1,6 @@
 # SimpleERP
 Simple ERP System - Tech Assessment
+
 ARCHITECTURE DIAGRAM
  
 
