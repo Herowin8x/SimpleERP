@@ -2,7 +2,8 @@
 Simple ERP System - Tech Assessment
 
 ARCHITECTURE DIAGRAM
- ![Alt text](https://example.com/image.png)
+![Logo](https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png)
+
 
 
 
