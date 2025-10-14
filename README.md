@@ -7,7 +7,8 @@ Simple ERP System - Tech Assessment
 ![Logo](https://raw.githubusercontent.com/Herowin8x/SimpleERP/refs/heads/main/Untitled.png)
 
 **COMPONENT DESCRIPTIONS**
-AUTHENTICATION & AUTHORIZATION FLOW
+
+**AUTHENTICATION & AUTHORIZATION FLOW**
 1.	User Login:
 o	User submits credentials → /api/auth/login.
 o	Backend:
@@ -23,11 +24,14 @@ o	Refresh token stored in DB.
 o	/api/auth/refresh-token can issue new JWT when access token expires.
 4.	Failed Login Lockout:
 o	After 5 consecutive failures → IsLockedOut = true for X minutes.
-INVENTORY MANAGEMENT FLOW
+
+**INVENTORY MANAGEMENT FLOW**
+
 Role	Permissions
 Viewer	GET (view list/details only)
 Editor	GET, POST, PUT, DELETE (full CRUD)
-EXAMPLE FLOW
+
+**EXAMPLE FLOW**
 1.	Viewer calls /api/inventory → returns read-only list.
 2.	Editor calls:
 o	POST /api/inventory → add new item.
