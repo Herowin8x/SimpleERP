@@ -2,7 +2,7 @@
 Simple ERP System - Tech Assessment
 
 ARCHITECTURE DIAGRAM
- 
+ ![Alt text](https://example.com/image.png)
 
 
 
