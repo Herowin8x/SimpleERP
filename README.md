@@ -2,6 +2,8 @@
 Simple ERP System - Tech Assessment
 
 **ARCHITECTURE DIAGRAM**
+
+
 ![Logo](https://raw.githubusercontent.com/Herowin8x/SimpleERP/refs/heads/main/Untitled.png)
 
 **COMPONENT DESCRIPTIONS**
