@@ -61,7 +61,7 @@ Manufacturers	string
 **DEPLOYMENTS**
 1.	Run DB Scripts(file InventoryDB.sql) to create DB and import data automatically(required SQL 2022 version, firstly need create a new database named “InventoryDB”
 2.	Run BE application from Inventory BE folder(required Visual Studio 2022 version), maybe need to modify ConnectionStrings in appsettings.json if difference SQL instance name
-3.	Run FE application from Inventory FE folder by using VS code or go to the terminal -> run command prompt as “npm start”, during use if there is any problem please refresh page or clear site data from application tab from Browser due to some of the problems described in section Technical Debt
+3.	Run FE application from Inventory FE folder by using VS code or go to the terminal -> run command prompt as “npm install” then run "npm start", during use if there is any problem please refresh page or clear site data from application tab from Browser due to some of the problems described in section Technical Debt
 Use Peter/dUY@NH123456 as Editor role
 Use Mark/dUY@NH112233 as Viewer role
 
