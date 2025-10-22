@@ -7,7 +7,7 @@ namespace Inventory.DLL
     {
         public InventoryDBContext(DbContextOptions options) : base(options)
         {
-            Database.EnsureCreated();
+            Database.Migrate();
         }
 
         public DbSet<UserEntity> Users { get; set; }

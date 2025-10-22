@@ -114,6 +114,7 @@ namespace MySample
             var app = builder.Build();
             var message = builder.Configuration["MyMiddlewareSettings:Message"];
             app.UseMiddleware<LogMiddleware>(message);
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseCors();
             app.UseAuthentication();
             app.UseAuthorization();

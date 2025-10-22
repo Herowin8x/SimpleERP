@@ -15,47 +15,50 @@ namespace Inventory.DLL.Repositories
             dbSet = this.dbContext.Set<T>();
         }
 
-        public IEnumerable<T> Read([Optional] Expression<Func<T, bool>> filter,
-                                   [Optional] Func<IQueryable<T>, IOrderedQueryable<T>> orderBy,
-                                   int pageNumber = 1,
-                                   int pageSize = 10)
+        public async Task<IEnumerable<T>> Read([Optional] Expression<Func<T, bool>> filter,
+                                               [Optional] Func<IQueryable<T>, IOrderedQueryable<T>> orderBy,
+                                               int pageNumber = 1,
+                                               int pageSize = 100)
         {
             IQueryable<T> query = dbSet;
 
             //Searching/Filtering
             if (filter != null)
-                query = query.Where(filter);
+                query = query.AsNoTracking().Where(filter);
 
             //Sorting
             if (orderBy != null)
                 return orderBy(query);
 
             //Paging
-            return query.Skip((pageNumber - 1) * pageSize).Take(pageSize);
+            return await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
         }
 
-        public virtual T? Read(object id) => dbSet.Find(id);
-
-        public virtual T Create(T entity)
+        public virtual async Task<T?> Read(object id)
         {
-            dbSet.Add(entity);
-            dbContext.SaveChanges();
+            return await dbSet.AsNoTracking().FirstOrDefaultAsync(e => EF.Property<T>(e, "Id").Equals(id));
+        }
+
+        public virtual async Task<T> Create(T entity)
+        {
+            await dbSet.AddAsync(entity);
+            await dbContext.SaveChangesAsync();
             return entity;
         }
 
-        public virtual void Update(T entity)
+        public virtual async Task Update(T entity)
         {
             dbSet.Update(entity);
-            dbContext.SaveChanges();
+            await dbContext.SaveChangesAsync();
         }
 
-        public virtual void Delete(object id)
+        public virtual async Task Delete(object id)
         {
-            var entity = Read(id);
-            if(entity != null)
+            var entity = await Read(id);
+            if (entity != null)
             {
                 dbSet.Remove(entity);
-                dbContext.SaveChanges();
+                await dbContext.SaveChangesAsync();
             }
         }
     }
